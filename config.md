@@ -1,4 +1,6 @@
-[title]: <> (Vitalik Buterin's website)
+[title]: <> (dmarz's website)
 [icon]: <> (http://vitalik.ca/images/icon.png)
-[server]: <> (root@vitalik.ca)
+[domain]: <> (http://dmarz.xyz)
+[posts_directory]: <> (posts)
+[server]: <> (root@dmarz.xyz)
 [website_root]: <> (/var/www/html)
