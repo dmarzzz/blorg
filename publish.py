@@ -26,6 +26,7 @@ PRE_HEADER = """
 HEADER_TEMPLATE = """
 
 <link rel="stylesheet" type="text/css" href="$root/css/main.css">
+<link rel="icon" type="image/svg+xml" href="$root/favicon.svg">
 
 <script type="text/x-mathjax-config">
 <script>
@@ -47,6 +48,8 @@ MathJax = {
 
 <div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
 
+<!--
+  Temporarily disable the color mode switch while we keep light theme only.
 <div id="color-mode-switch">
   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -94,6 +97,7 @@ TOGGLE_COLOR_SCHEME_JS = """
   }
   checkColorScheme();
 </script>
+-->
 """
 
 RSS_LINK = """
@@ -371,4 +375,11 @@ if __name__ == '__main__':
     this_file_directory = os.path.dirname(__file__)
     os.system('cp -r {} site/'.format(os.path.join(this_file_directory, 'css')))
     os.system('cp -r {} site/'.format(os.path.join(this_file_directory, 'scripts')))
-    os.system('rsync -av images site/')
+    favicon_src = os.path.join(this_file_directory, 'favicon.svg')
+    if os.path.isfile(favicon_src):
+        os.system('cp {} {}/'.format(favicon_src, 'site'))
+    images_dir = os.path.join(this_file_directory, 'images')
+    if os.path.isdir(images_dir):
+        os.system('rsync -av {} site/'.format(images_dir))
+    else:
+        print('No images directory found; skipping image sync.')

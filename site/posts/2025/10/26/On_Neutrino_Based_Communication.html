@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<style>
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1c1c;
+        color: white;
+    }
+    .markdown-body table tr {
+        background-color: #1c1c1c;
+    }
+    .markdown-body table tr:nth-child(2n) {
+        background-color: black;
+    }
+}
+</style>
+
+
+
+<link rel="alternate" type="application/rss+xml" href="../../../../feed.xml" title="On Neutrino Based Communication">
+
+
+
+<link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+
+<script type="text/x-mathjax-config">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']]
+  },
+  svg: {
+    fontCache: 'global',
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../scripts/tex-svg.js">
+</script>
+
+<style>
+</style>
+
+<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+
+<!--
+  Temporarily disable the color mode switch while we keep light theme only.
+<div id="color-mode-switch">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+  </svg>
+  <input type="checkbox" id="switch" />
+  <label for="switch">Dark Mode Toggle</label>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+  </svg>
+</div>
+
+<script type="text/javascript">
+  // Update root html class to set CSS colors
+  const toggleDarkMode = () => {
+    const root = document.querySelector('html');
+    root.classList.toggle('dark');
+  }
+
+  // Update local storage value for colorScheme
+  const toggleColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    if (colorScheme === 'light') localStorage.setItem('colorScheme', 'dark');
+    else localStorage.setItem('colorScheme', 'light');
+  }
+
+  // Set toggle input handler
+  const toggle = document.querySelector('#color-mode-switch input[type="checkbox"]');
+  if (toggle) toggle.onclick = () => {
+    toggleDarkMode();
+    toggleColorScheme();
+  }
+
+  // Check for color scheme on init
+  const checkColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    // Default to light for first view
+    if (colorScheme === null || colorScheme === undefined) localStorage.setItem('colorScheme', 'light');
+    // If previously saved to dark, toggle switch and update colors
+    if (colorScheme === 'dark') {
+      toggle.checked = true;
+      toggleDarkMode();
+    }
+  }
+  checkColorScheme();
+</script>
+-->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="On Neutrino Based Communication" />
+<meta name="twitter:image" content="http://vitalik.ca/images/icon.png" />
+
+
+<br>
+<h1 style="margin-bottom:7px"> On Neutrino Based Communication </h1>
+<small style="float:left; color: #888"> 2025 Oct 26 </small>
+<small style="float:right; color: #888"><a href="../../../../index.html">See all posts</a></small>
+<br> <br> <br>
+<title> On Neutrino Based Communication </title>
+
+<p>In <em>Understanding Media The Extensions of Man</em>, the Canadian
+philosopher Marshal Mcluhan eqlouently stated, "During the mechanical
+ages we had extended our bodies in space. Today, after more than a
+century of electric technology, we have extended our central nervous
+system itself in a global embrace, abolishing both space and time as far
+as our planet is concerned." I often think about this statement and
+wonder: what technology changes the last bit, from "our planet" to "our
+galaxy"? Towards this end, I explore an futuristic communication medium,
+neutrinos.</p>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Neutrinos are near massless particles that interact extremely weakly
+with matter, trillions pass through your hand every second.</li>
+<li>Neutrinos are interesting for long range communication due to their
+ability to travel at near the speed of light, in a straight line, and
+encounter very little obstacles.</li>
+<li>Neutrinos are also interesting for censorship resistant
+communication since a censor would need to encase the transmitter in a
+360 degree wall of netrino blocking material.</li>
+<li>Detection of Neutrinos is extremely hard, but possible. In 1955
+Project Poltregeist detected 3 neutrinos per hour. Today the IceCube
+Neutrino Observatory detects 10 neutrinos per hour.</li>
+<li>Researchers in 2024 were able to transmit the word "neutrino" over
+1km at 0.1 bits/s with an error rate of 1%.</li>
+<li>Sending an unrealistic 1-bit Buy "B" or Sell "S" signal over a
+neutrino from New York to Tokyo would take over 1s, meaning we need 100x
+improvement in neutrino detection capabilities to be interesting.</li>
+</ul>
+<h2 id="neutrinos">Neutrinos</h2>
+<p><em>I'll start out by prefacing that the use of neutrinos for
+communication is both extremely exotic, as well as extremely not
+feasible for anything like permissionless finance anytime soon.
+Nonethless, that shouldn't stop us from looking towards the future, and
+in true human ingenuity, a few people have already expored the
+topic!</em></p>
+<p><a href="https://en.wikipedia.org/wiki/Neutrino">Neutrinos</a> are
+the ghosts in the <a
+href="https://en.wikipedia.org/wiki/Standard_Model">standard model</a>
+of elementary particles. The standard, and <a
+href="https://physics.stackexchange.com/questions/532708/what-is-the-evidence-for-billions-of-neutrinos-pass-through-your-body-every-sec">somewhat
+apocryphal example</a>, given with every introduction to neutrinos is
+that "<a
+href="https://www.smithsonianmag.com/science-nature/looking-for-neutrinos-natures-ghost-particles-64200742/">about
+100 trillion neutrinos pass through our bodies every second</a>".
+Neutrinos exhibit this interesting property because they are relatively
+massless. In fact, they are so massless that the <a
+href="https://www.nature.com/articles/nphys3543">2015 Nobel Prize in
+Physics</a> was awarded to <a
+href="nobelprize.org/nobel_prizes/physics/laureates/2015/kajita-facts.html">Takaaki
+Kajita</a> and <a
+href="https://www.nobelprize.org/prizes/physics/2015/mcdonald/facts/">Arthur
+B. McDonald</a> for the most conclusive experimental evidence that they
+had any mass at all! The other contributing factor is that they only
+interact via the <a
+href="https://en.wikipedia.org/wiki/Weak_interaction">weak
+force</a>.</p>
+<p>Additionally they travel at near the speed of light, a property that
+SETI magainze Cosmic Search Vol. 1 says, <a
+href="http://www.bigear.org/vol1no3/neutrino.htm">"the possibilities of
+using neutrinos as the vehicle for interstellar communication should be
+carefully explored... since most other communicating civilizations would
+be far more advanced than our own, it is an interesting exercise to
+examine alternative means by which interstellar communication may have
+evolved."</a></p>
+<figure>
+<img src="https://hackmd.io/_uploads/BJadF-R6xe.png" alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<h3 id="how-do-we-detect-neutrinos">How Do We Detect Neutrinos?</h3>
+<p>Already you may see where my train of thought goes, that because of
+this ability, or lack of ability, to interact with matter, this makes
+them in principle extremely attractive for censorship resistant
+communications. If you were to harness such capability, then someone
+would need to place a 360 degree ball of neutrino blocking material all
+around the transmitter for you get censored. This means a critical
+message from one side of the planet could be communicated through the
+center!</p>
+<p>The very natural next question is then, if they pass through
+everything, then how could you possibly detect them? Well the answer,
+atleast right now, is at <strong><em>very low rates</em></strong>. At
+it's core all detection methods rely on the interaction of neutrinos
+with other particles that then themselves emit another particle which is
+more easily detectable.</p>
+<h4 id="the-first-detection">The First Detection</h4>
+<p>After being theorized in 1930 by Wolfgang Pauli, the earliest
+experiments to detect neutrinos were by <a
+href="https://icecube.wisc.edu/neutrino-history/1956/01/1956-first-discovery-of-the-neutrino-by-an-experiment/">Clyde
+L. Cowan and Frederick Reines</a>. They "<a
+href="https://www.lanl.gov/media/publications/national-security-science/0325-project-poltergeist">hypothesized
+that a neutrino might interact with a proton to produce a neutron and a
+positron. The positron would in turn interact with any nearby electron,
+annihilating both itself and the electron and producing two detectable
+gamma rays. The probability of such an interaction is extremely low (one
+in one trillion trillion), so a large neutrino generator and a large
+source of protons would be necessary.</a>".</p>
+<p>Their aptly named Project Poltergeist was initially approved to use
+<a
+href="https://www.lanl.gov/media/publications/national-security-science/0325-project-poltergeist">the
+neutrino flux from a 20-kiloton nuclear bomb test</a> at Los Alamos,
+comparable to that dropped on Hiroshima, but after some dissuasion, they
+instead turned to a nuclear reactor in South Carolina. The reactor
+produced a steady stream of the then theoretical neutrinos, which they
+directed toward a 200-liter water tank laced with 40 kg of dissolved
+cadmium. When antineutrinos struck protons in the water, they produced
+positrons and neutrons. The positrons' annihilation yielded two gamma
+rays, and moments later the neutrons were absorbed by cadmium, releasing
+a third. And "after months of data collection, they had accumulated data
+on about three neutrinos per hour in their detector."</p>
+<h4 id="cosmic-scale-detection">Cosmic Scale Detection</h4>
+<p>Since 1955, an entire observatory devoted to the detection of
+neutrinos has been built. The aso aptly named <a
+href="https://icecube.wisc.edu/">IceCube Neutrino Observatory</a> is
+located in the South Pole and uses a cubic kilometer of Antarctic ice
+instrumented with photomultiplier tubes (optical sensors) to detect
+Cherenkov light from secondary charged particles created when neutrinos
+interact in the ice. IceCube is designed to detect higher energy
+neutrinos from cosmic events than those that are ommitted from
+terrestial nuclear reactions. Because of this, they detect, "275 million
+cosmic rays" a day, and "275 atmospheric neutrinos daily and about
+100,000 per year".</p>
+<p><img src="https://hackmd.io/_uploads/HknAWz0ple.png" alt="image" />
+<em>"The IceCube Neutrino Observatory encompasses a cubic kilometer of
+ice below the surface near Amundsen-Scott South Pole Station. This
+illustration simulates the interaction of a neutrino with a molecule of
+ice. Photo Credit: IceCube Collaboration/NSF"</em></p>
+<p>IceCube turns a cubic kilometer of ice into one of the largest
+telescopes on Earth—not by observing light directly from the stars, but
+by catching the faint blue glow produced when neutrinos finally do
+interact with matter referred to as <a
+href="https://en.wikipedia.org/wiki/Cherenkov_radiation">Cherenkov
+radiation</a>. When a high-energy neutrino collides with a molecule of
+ice, it transfers its energy to a secondary charged particle (often a
+muon or electron). That secondary particle then moves faster than light
+can travel through ice, generating a cone of Cherenkov radiation—a
+bluish flash similar to an optical sonic boom.</p>
+<p>Over 5,000 digital optical modules buried deep in the ice register
+the timing and intensity of these "Cherenkov photons". From the pattern
+and delay of signals across the grid, IceCube reconstructs the incoming
+particle's direction and energy, effectively tracing the neutrino's
+origin back to its cosmic source. Though the neutrinos themselves remain
+invisible, their ghostly footprints of light allow scientists to map
+violent astrophysical events—supernovae, blazars, and black holes—from
+across the universe.</p>
+<figure>
+<img src="https://hackmd.io/_uploads/HkJxImA6ll.png" alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<h3 id="how-can-we-use-neutrinos-for-communication">How Can We Use
+Neutrinos for Communication</h3>
+<p>Numerous scientific endeavors have equipped us with all the tools we
+need to communicate with neutrinos: the ability to generate neutrino
+beams, the ability to detect them, and good old signal theory which
+enables us to encode a signal.</p>
+<p>And recently a team of scientist did exactly that. In <a
+href="https://arxiv.org/pdf/1203.2847">a paper published in 2024</a>,
+they report "on the performance of a low-rate communications link
+established using the NuMI beam line and the MINERvA detector at
+Fermilab. The link achieved a decoded data rate of 0.1 bits/sec with a
+bit error rate of 1% over a distance of 1.035 km that included 240m of
+earth. This demonstration illustrates the feasibility of using neutrino
+beams to provide a low-rate communications link, independent of any
+existing electromagnetic communications infrastructure. However, given
+the limited range, low data rate, and extreme technologies required to
+achieve this goal, significant improvements in neutrino beams and
+detectors are required for "practical" application."</p>
+<p>The methodology of their approach is not so different to those of
+Clyde Cowan and Frederick Reines, except scientists now have a
+consistent generator of neutrinos called the Neutrino beam at the Main
+Injector (NuMI) at Fermilabs. To generate this beam of neutrinos,
+protons are sent down a long tunnel where they collide with a graphite
+target, creating a shower of unstable particles such as pions and kaons.
+These particles are then guided by strong magnetic fields into a long
+decay tunnel, where they naturally decay into muons and neutrinos. The
+muons are absorbed by thick shielding material, while the
+neutrinos—almost entirely unaffected by matter—continue straight through
+the Earth toward detectors located far underground. This entire process
+effectively transforms the accelerator into a "neutrino beam generator,"
+capable of sending a focused stream of neutrinos through solid rock.</p>
+<figure>
+<img src="https://hackmd.io/_uploads/SyO8D7Cage.png"
+alt="Screenshot 2025-10-16 at 5.05.31 PM" />
+<figcaption aria-hidden="true">Screenshot 2025-10-16 at
+5.05.31 PM</figcaption>
+</figure>
+<p>Now that we can reliably emit and detect in this environment, the
+next step is to encode a message. The NuMI beam was configured to emit
+timed bursts of neutrinos to enable one of the simplest forms of signal
+encoding, known in classical communication theory as <a
+href="https://en.wikipedia.org/wiki/On%E2%80%93off_keying">on–off
+keying</a>. Each burst of neutrinos produced by the accelerator is
+treated as a digital "on" signal, while pauses between bursts represent
+"off", enabling a binary code. And at the end of this process, the first
+message ever sent over neutrinos was decoded, "neutrino".</p>
+<p>A roughly accurate to the paper image generated by Google nano banana
+illustrating the neutrino beam and muon detectors is shown below. <img
+src="https://hackmd.io/_uploads/rJbN4Dcage.png" alt="image" /></p>
+<h3 id="when-would-we-use-neutrino-based-communication">When Would We
+Use Neutrino Based Communication</h3>
+<p>The <a href="https://arxiv.org/pdf/1203.2847">2024 paper</a>
+referenced above established the state of the art at 0.1 bit/second
+through the use of neutrinos. Although the experiment achieved a bit
+error rate of about 1%, only 15 of 3,454 frames were successfully
+synchronized, corresponding to a packet-loss-equivalent rate of roughly
+99.6%. This illustrates how extremely sparse detections constrain the
+practical bandwidth of neutrino communication systems. But
+optimistically, the results are way better than this <a
+href="https://xkcd.com/3017/">XKCD cartoon</a> from many years ago. <a
+href="https://physics.yale.edu/news/moore-group-develops-innovative-technique-detect-elusive-particles">Recent
+improvements to detection techniques have also emerged</a>!</p>
+<figure>
+<img src="https://hackmd.io/_uploads/Ske_w-Raxx.png" alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>So communication via neuntrino is fast, but very low bandwidth.
+Ignoring bandwidth constraints, we can use some basic geometry to
+understand when it would be faster.</p>
+<p>Let's forget the Earth is an irregularly shaped ellipsoid for a
+second. On a spherical Earth, surface signals (like fiber routes) follow
+a curved arc around the planet, while a neutrino beam could travel in a
+straight line through it. That straight line, a chord, is always shorter
+than the curved path along the surface. For short distances the
+difference is tiny, but for long distances, especially through the
+Earth's core, the shortcut becomes dramatic.</p>
+<p>If we only consider how long light (or a neutrino) takes to travel
+that path, ignoring hardware delays, the neutrino beam effectively
+travels at the speed of light in a vacuum <span
+class="math inline"><em>c</em></span>. By contrast, signals in fiber
+travel slower, about <span
+class="math inline"><em>c</em>/1.468 ≈ 0.68<em>c</em></span>, because
+light moves more slowly in glass. Even for equal path lengths, neutrinos
+would arrive sooner than fiber, and combined with their shorter route,
+the difference grows further.</p>
+<p>We can use the following formulas to create a table to illustrate the
+advantage of neutrino based communication ignoring bandwidth.</p>
+<p><span class="math display">Surface Arc Length:
+<em>s</em> = <em>R</em><em>θ</em> </span></p>
+<p><span class="math display">$$
+\text{Neutrino Chord Length: } d = 2R \sin\left(\frac{\theta}{2}\right)
+\
+$$</span></p>
+<p><span class="math display">$$
+\text{Neutrino Propagation time: } T_\text{neutrino} = \frac{d}{c} \
+$$</span> <span class="math display">$$
+\text{Fiber Propagation Time: } T_\text{fiber} = \frac{s}{c/n} = \frac{n
+s}{c} \
+$$</span> <span class="math display">$$
+\text{Propagation Ratio} = \frac{T_\text{neutrino}}{T_\text{fiber}} =
+\frac{2 \sin(\theta/2)}{n \theta}
+$$</span></p>
+<p>where: • R = <code>6,371 km</code> (Earth radius) • n =
+<code>1.468</code> (refractive index of fiber) • <span
+class="math inline"><em>θ</em></span> is the central angle between two
+points on Earth (in radians)</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 20%" />
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Surface Arc (km)</th>
+<th>Neutrino Chord (km)</th>
+<th>Path Saving</th>
+<th>Ideal Neutrino vs Fiber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>City-scale (500 km)</td>
+<td>500</td>
+<td>500</td>
+<td>0.0% shorter</td>
+<td>31.9% faster</td>
+</tr>
+<tr>
+<td>Regional (1,000 km)</td>
+<td>1,000</td>
+<td>999</td>
+<td>0.1% shorter</td>
+<td>32.0% faster</td>
+</tr>
+<tr>
+<td>US coast-to-coast (~4,500 km)</td>
+<td>4,500</td>
+<td>4,407</td>
+<td>2.1% shorter</td>
+<td>33.3% faster</td>
+</tr>
+<tr>
+<td>China width (~5,500 km)</td>
+<td>5,500</td>
+<td>5,331</td>
+<td>3.1% shorter</td>
+<td>34.0% faster</td>
+</tr>
+<tr>
+<td>Antipodes (half Earth)</td>
+<td>20,015</td>
+<td>12,742</td>
+<td>36.3% shorter</td>
+<td>56.6% faster</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>But let's get a bit more realistic, since we totally
+ignored bandwidth above.</em></strong></p>
+<p>Even though neutrino propagation is faster in theory, bandwidth
+completely dominates latency in practice. At 0.1 bit per second (the
+Fermilab result), it takes 10 seconds to send a single bit. Let's
+compare that to modern fiber transmission between New York (NYSE) and
+Tokyo, which can carry gigabits per second with a one-way latency of
+roughly 70–120 ms.</p>
+<p>Suppose we only need to send a minimal trading signal: either "Buy"
+or "Sell."</p>
+<p>Even with such a tiny message, the difference is dramatic:</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 16%" />
+<col style="width: 14%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Message Type</th>
+<th style="text-align: right;">Bits Sent</th>
+<th style="text-align: right;">Neutrino TX Time (0.1 bps)</th>
+<th style="text-align: right;">Neutrino Propagation</th>
+<th style="text-align: right;">Total Neutrino Time</th>
+<th style="text-align: right;">Fiber Propagation</th>
+<th style="text-align: right;">Fiber (Internet) Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-bit signal ("Buy" / "Sell")</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10.0 s</td>
+<td style="text-align: right;">0.032 s</td>
+<td style="text-align: right;"><strong>≈10.03 s</strong></td>
+<td style="text-align: right;">0.053 s</td>
+<td style="text-align: right;"><strong>≈0.07–0.12 s</strong></td>
+</tr>
+<tr>
+<td>8-bit signal (ASCII ‘B' / ‘S')</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">80.0 s</td>
+<td style="text-align: right;">0.032 s</td>
+<td style="text-align: right;"><strong>≈80.03 s</strong></td>
+<td style="text-align: right;">0.053 s</td>
+<td style="text-align: right;"><strong>≈0.07–0.12 s</strong></td>
+</tr>
+<tr>
+<td>32-bit redundant packet (error-protected)</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">320.0 s</td>
+<td style="text-align: right;">0.032 s</td>
+<td style="text-align: right;"><strong>≈320.03 s</strong></td>
+<td style="text-align: right;">0.053 s</td>
+<td style="text-align: right;"><strong>≈0.07–0.12 s</strong></td>
+</tr>
+</tbody>
+</table>
+<p>So while a neutrino message would arrive milliseconds earlier if both
+were transmitted simultaneously, it would take seconds or even minutes
+just to get a simple "Buy" or "Sell" trading signal reliabily.</p>
+<h2 id="toward-neutrino-net">Toward Neutrino Net</h2>
+<p>According to available government sources, which should absolutely be
+double-checked, building the <a
+href="https://history.fnal.gov/historical/accelerator/numi_glad_tidings.html">NuMI
+beam line cost roughly $136 million</a>, and the <a
+href="https://minerva.fnal.gov/wp-content/uploads/2016/02/proposal.pdf">MINERvA
+detector another $4–6 million with installation and contingency</a>. Of
+course none of this accounts for decades of maintenance, operation, or
+inflation. Conservatively, scaling to a modern equivalent puts the
+combined cost closer to $2 billion.</p>
+<p>If detection efficiency improved by even two to three orders of
+magnitude, boosting throughput from 0.1 bit/s to roughly 10–100 bit/s, a
+single neutrino beam could transmit basic trading signals in real time,
+cutting straight through the planet faster than any fiber route could
+circle it. For high-frequency trading firms, which already spend
+millions to shave microseconds, such a latency advantage would be
+priceless.</p>
+<p>Thus the first domino to fall that would trigger the ultimate arrival
+of a neutrino based communicaiton network ("neutrino net") is simply one
+successful trading signal sent over neutrinos. From there, each HFT
+would fund their own version, rapidly expanding the state of the art and
+total bandwidth available. Call your favorite HFT today and tell them
+about neutrinos!</p>
+<figure>
+<img src="https://hackmd.io/_uploads/HyadwrmCxe.png" alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+ </div> 

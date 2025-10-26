@@ -1,48 +1,49 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=VT323&display=swap');
 
-/* ---------- Design tokens ---------- */
+/* ---------- Joan Mitchell Color Palette ---------- */
 :root{
-  --color-bg: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 25%, #f0f8f0 50%, #f5f0f8 75%, #f8f9fa 100%);
-  --color-text:#2c3e50;
-  --color-anchor:#8FBC8F; /* foamy green */
-  --color-heading:#1a252f;
-  --color-divider:#bdc3c7;
-  --color-code-bg:rgba(255, 255, 255, 0.8);
-  --color-code-text:#2c3e50;
-  --color-table-border:#bdc3c7;
-  --color-table-row-even:rgba(248, 249, 250, 0.6);
-  --color-table-row-odd:rgba(255, 255, 255, 0.8);
-  --color-toggle-accent: #8B0000; /* vibrant burgundy */
+  /* Inspired by "La Grande Vallée" series - Spring landscapes */
+  --color-bg: linear-gradient(135deg, #f4f1de 0%, #e8d5c4 25%, #d4a574 50%, #b08968 75%, #8b4513 100%);
+  --color-text:#2d1810;
+  --color-anchor:#d2691e; /* burnt sienna */
+  --color-heading:#8b4513; /* saddle brown */
+  --color-divider:#cd853f; /* peru */
+  --color-code-bg:rgba(244, 241, 222, 0.9);
+  --color-code-text:#2d1810;
+  --color-table-border:#cd853f;
+  --color-table-row-even:rgba(212, 165, 116, 0.3);
+  --color-table-row-odd:rgba(244, 241, 222, 0.8);
+  --color-toggle-accent: #8b0000; /* dark red */
 }
 
-/* Dark mode toggled with <html class="dark"> */
+/* Dark mode - Inspired by "Nocturnes" series */
 html.dark{
   --color-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
-  --color-text:#e8f4f8;
-  --color-anchor:#8FBC8F; /* foamy green */
-  --color-heading:#f8f9fa;
-  --color-divider:#4a5568;
-  --color-code-bg:rgba(45, 55, 72, 0.8);
-  --color-code-text:#e8f4f8;
-  --color-table-border:#4a5568;
-  --color-table-row-even:rgba(26, 26, 46, 0.6);
-  --color-table-row-odd:rgba(45, 55, 72, 0.8);
+  --color-text:#f4f1de;
+  --color-anchor:#d2691e; /* burnt sienna */
+  --color-heading:#f4f1de;
+  --color-divider:#8b4513;
+  --color-code-bg:rgba(26, 26, 46, 0.9);
+  --color-code-text:#f4f1de;
+  --color-table-border:#8b4513;
+  --color-table-row-even:rgba(45, 55, 72, 0.6);
+  --color-table-row-odd:rgba(26, 26, 46, 0.8);
 }
 
 /* Fallback for users that prefer a dark scheme */
 @media (prefers-color-scheme: dark){
   :root:not(.dark){
     --color-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
-    --color-text:#e8f4f8;
-    --color-anchor:#8FBC8F; /* foamy green */
-    --color-heading:#f8f9fa;
-    --color-divider:#4a5568;
-    --color-code-bg:rgba(45, 55, 72, 0.8);
-    --color-code-text:#e8f4f8;
-    --color-table-border:#4a5568;
-    --color-table-row-even:rgba(26, 26, 46, 0.6);
-    --color-table-row-odd:rgba(45, 55, 72, 0.8);
+    --color-text:#f4f1de;
+    --color-anchor:#d2691e; /* burnt sienna */
+    --color-heading:#f4f1de;
+    --color-divider:#8b4513;
+    --color-code-bg:rgba(26, 26, 46, 0.9);
+    --color-code-text:#f4f1de;
+    --color-table-border:#8b4513;
+    --color-table-row-even:rgba(45, 55, 72, 0.6);
+    --color-table-row-odd:rgba(26, 26, 46, 0.8);
   }
 }
 
@@ -58,9 +59,9 @@ html.dark{
 
 body{
   margin:0;
-  font-family:'VT323', monospace;
-  font-size: 1.1rem;
-  line-height:1.8;
+  font-family:'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.125rem;
+  line-height:1.75;
   background:var(--color-bg);
   background-attachment: fixed;
   background-size: 400% 400%;
@@ -73,7 +74,7 @@ body{
 img,svg{max-width:100%;height:auto;}
 
 /* Layout container */
-.container-fluid{padding:40px 15px;margin:auto;max-width:1200px;position:relative;}
+.container-fluid{padding:48px 18px;margin:auto;max-width:1100px;position:relative;}
 
 /* ASCII Stars Background */
 .container-fluid::before,
@@ -81,13 +82,13 @@ img,svg{max-width:100%;height:auto;}
   content: "★ ☆ ✦ ✧";
   position: fixed;
   font-family: 'VT323', monospace;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--color-anchor);
-  opacity: 0.15;
+  opacity: 0.1;
   pointer-events: none;
   z-index: -1;
   line-height: 1.2;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.35em;
 }
 
 .container-fluid::before {
@@ -106,8 +107,8 @@ img,svg{max-width:100%;height:auto;}
 @media only screen and (orientation: portrait) {
   .container-fluid::before,
   .container-fluid::after {
-    font-size: 1rem;
-    opacity: 0.12;
+    font-size: 0.95rem;
+    opacity: 0.1;
   }
   
   .container-fluid::before {
@@ -188,7 +189,7 @@ img,svg{max-width:100%;height:auto;}
 }
 
 /* Constrain main markdown content */
-.markdown-body{max-width:760px;margin:auto;padding:40px 15px 40px 15px;position:relative;letter-spacing: .025em}
+.markdown-body{max-width:760px;margin:auto;padding:52px 20px 56px 20px;position:relative;letter-spacing:.01em}
 
 /* Markdown body basics */
 .markdown-body table{width:100%;border-collapse:collapse;margin:1em 0;}
@@ -198,69 +199,36 @@ img,svg{max-width:100%;height:auto;}
 .markdown-body code{background:var(--color-code-bg);color:var(--color-code-text);padding:.2em .4em;border-radius:4px;}
 .markdown-body pre{background:var(--color-code-bg);color:var(--color-code-text);padding:.8em;overflow:auto;border-radius:4px;}
 
-/* Headline underline (simple border) */
-.markdown-body h1{font-weight:600;margin-top:0;padding-bottom:.3em;margin-top:42px;margin-bottom:.5rem;border-bottom:1px solid rgb(205 205 205);} /* border-bottom-color set to 205 205 205 */
-
-/* Encrypted Title - Neon Genesis Rainbow */
-.markdown-body h1 {
-  text-align: center;
-  font-size: 2.6rem;
-  margin: 4rem auto 3rem;
-  letter-spacing: 0.15em;
-  position: relative;
-  background: linear-gradient(120deg, #ff1493, #ff6b35, #ffd700, #32cd32, #00bfff, #9370db, #ff1493);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  border-bottom: none;
-  padding-bottom: 0;
-  text-shadow: 
-    0 0 2px #00ffff,
-    0 0 4px #00ffff,
-    0 0 6px #ff69b4,
-    0 0 8px #ff69b4;
-  animation: neonGenesis 2.5s ease-in-out infinite alternate, rainbowShift 8s ease-in-out infinite;
+.markdown-body h1{
+  font-weight:700;
+  margin:3.5rem auto 2rem;
+  text-align:center;
+  color:var(--color-heading);
+  letter-spacing:0.04em;
 }
 
-@keyframes neonGenesis {
-  from {
-    text-shadow: 
-      0 0 2px #00ffff,
-      0 0 4px #00ffff,
-      0 0 6px #ff69b4,
-      0 0 8px #ff69b4;
-  }
-  to {
-    text-shadow: 
-      0 0 1px #00ffff,
-      0 0 2px #00ffff,
-      0 0 3px #ff69b4,
-      0 0 4px #ff69b4;
-  }
+.markdown-body h1::after{
+  content:'';
+  display:block;
+  width:72px;
+  height:3px;
+  margin:18px auto 0;
+  background:var(--color-anchor);
+  border-radius:999px;
+  opacity:0.65;
 }
 
-@keyframes rainbowShift {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 100% 50%; }
-  50% { background-position: 100% 100%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Horizontal Rules - Keeping the thin divider */
 .markdown-body hr {
-  height: 2px;
-  padding: 0;
-  margin: 2rem 0;
-  background: linear-gradient(90deg, transparent, var(--color-anchor), transparent);
-  border: 0;
-  border-radius: 1px;
+  height:2px;
+  padding:0;
+  margin:2.5rem 0;
+  background:linear-gradient(90deg,transparent,var(--color-divider),transparent);
+  border:0;
+  border-radius:1px;
 }
 
 /* Date & meta info */
-.markdown-body small{font-size:.85rem;color:var(--color-text);display:block;opacity:0.9;font-weight:500;}
+.markdown-body small{font-size:.95rem;color:var(--color-text);display:block;opacity:0.75;font-weight:500;}
 
 /* Utility – visually hidden */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
@@ -274,19 +242,20 @@ a{color:var(--color-anchor);text-decoration:none;}
 a:hover,a:focus{text-decoration:underline;}
 
 /* Headings */
-h1,h2,h3,h4,h5,h6{color:var(--color-heading);line-height:1.25;margin-top:1.2em;margin-bottom:.6em;}
-h1{font-size:2.6rem;}
-h2{font-size:2.2rem;}
-h3{font-size:1.8rem;}
+h1,h2,h3,h4,h5,h6{color:var(--color-heading);line-height:1.2;margin-top:1.35em;margin-bottom:.7em;}
+h1{font-size:2.4rem;}
+h2{font-size:2rem;}
+h3{font-size:1.65rem;}
 
 /* Responsive typography */
 @media only screen and (orientation: portrait) {
   .markdown-body{max-width:1000px; padding: 40px;}
-  h1{font-size:4rem;}
-  h2{font-size:3.5rem;}
-  h3{font-size:3rem;}
-  .markdown-body p,li,div,span,code,table {font-size: 1.8rem;}
-  .markdown-body small {font-size: 1.4rem;}
+  body{font-size:1.05rem;}
+  h1{font-size:2.6rem;}
+  h2{font-size:2.2rem;}
+  h3{font-size:1.9rem;}
+  .markdown-body p,li,div,span,code,table {font-size: 1.05rem;}
+  .markdown-body small {font-size: 0.95rem;}
 }
 
 /* Simple clearfix for floats */
