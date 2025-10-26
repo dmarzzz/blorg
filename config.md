@@ -1,4 +1,4 @@
-[title]: <> (dmarz's website)
+[title]: <> (Plausible Pluralities)
 [icon]: <> (http://vitalik.ca/images/icon.png)
 [domain]: <> (http://dmarz.xyz)
 [posts_directory]: <> (posts)

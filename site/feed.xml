@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <rss version="2.0">
 <channel>
-  <title>dmarz's website</title>
+  <title>Plausible Pluralities</title>
   <link>http://dmarz.xyz/</link>
-  <description>dmarz's website</description>
+  <description>Plausible Pluralities</description>
   <image>
       <url>http://vitalik.ca/images/icon.png</url>
-      <title>dmarz's website</title>
+      <title>Plausible Pluralities</title>
       <link>http://dmarz.xyz/</link>
   </image>
 

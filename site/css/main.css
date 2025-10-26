@@ -1,129 +1,129 @@
-/* Minimal CSS extracted for 2.html
-   – Responsive (desktop & mobile)
-   – Supports manual toggle (.dark) + prefers‑color‑scheme
-   – Only includes selectors referenced in the document */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* ---------- Design tokens ---------- */
 :root{
-  --color-bg:#fff;
-  --color-text:#333;
-  --color-anchor:#337ab7;
-  --color-heading:#111;
-  --color-divider:#cdcdcd; /* rgb(205 205 205) */
-  --color-code-bg:#f7f7f7;
-  --color-code-text:#333;
-  --color-table-border:#c2c2c2;
-  --color-table-row-even:#f0f0f0;
-  --color-table-row-odd:#fff;
-  --color-toggle-accent: #c3a554;
+  --color-bg: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 25%, #f0f8f0 50%, #f5f0f8 75%, #f8f9fa 100%);
+  --color-text:#2c3e50;
+  --color-anchor:#8FBC8F; /* foamy green */
+  --color-heading:#1a252f;
+  --color-divider:#bdc3c7;
+  --color-code-bg:rgba(255, 255, 255, 0.8);
+  --color-code-text:#2c3e50;
+  --color-table-border:#bdc3c7;
+  --color-table-row-even:rgba(248, 249, 250, 0.6);
+  --color-table-row-odd:rgba(255, 255, 255, 0.8);
+  --color-toggle-accent: #8B0000; /* vibrant burgundy */
 }
 
 /* Dark mode toggled with <html class="dark"> */
 html.dark{
-  --color-bg:#1c1c1c;
-  --color-text:#e5e5e5;
-  --color-anchor:#c3a554;
-  --color-heading:#fff;
-  --color-divider:#444;
-  --color-code-bg:#2d2d2d;
-  --color-code-text:#f7f7f7;
-  --color-table-border:#444;
-  --color-table-row-even:#262626;
-  --color-table-row-odd:#1c1c1c;
+  --color-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
+  --color-text:#e8f4f8;
+  --color-anchor:#8FBC8F; /* foamy green */
+  --color-heading:#f8f9fa;
+  --color-divider:#4a5568;
+  --color-code-bg:rgba(45, 55, 72, 0.8);
+  --color-code-text:#e8f4f8;
+  --color-table-border:#4a5568;
+  --color-table-row-even:rgba(26, 26, 46, 0.6);
+  --color-table-row-odd:rgba(45, 55, 72, 0.8);
 }
 
 /* Fallback for users that prefer a dark scheme */
 @media (prefers-color-scheme: dark){
   :root:not(.dark){
-    --color-bg:#1c1c1c;
-    --color-text:#e5e5e5;
-    --color-anchor:#c3a554;
-    --color-heading:#fff;
-    --color-divider:#444;
-    --color-code-bg:#2d2d2d;
-    --color-code-text:#f7f7f7;
-    --color-table-border:#444;
-    --color-table-row-even:#262626;
-    --color-table-row-odd:#1c1c1c;
+    --color-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e 100%);
+    --color-text:#e8f4f8;
+    --color-anchor:#8FBC8F; /* foamy green */
+    --color-heading:#f8f9fa;
+    --color-divider:#4a5568;
+    --color-code-bg:rgba(45, 55, 72, 0.8);
+    --color-code-text:#e8f4f8;
+    --color-table-border:#4a5568;
+    --color-table-row-even:rgba(26, 26, 46, 0.6);
+    --color-table-row-odd:rgba(45, 55, 72, 0.8);
   }
 }
 
 /* ---------- Global element styles ---------- */
 *{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:Inter,system-ui,sans-serif;
-  line-height:1.8;
-  background:var(--color-bg);
-  color:var(--color-text);
+
+/* Subtle gradient animation inspired by Joan Mitchell's gestural brushstrokes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Links */
-a{color:var(--color-anchor);text-decoration:none;}
-a:hover,a:focus{text-decoration:underline;}
-
-/* Headings */
-h1,h2,h3,h4,h5,h6{color:var(--color-heading);line-height:1.25;margin-top:1.2em;margin-bottom:.6em;}
-h1{font-size:2rem;}
-h2{font-size:1.6rem;}
-h3{font-size:1.3rem;}
+body{
+  margin:0;
+  font-family:'VT323', monospace;
+  font-size: 1.1rem;
+  line-height:1.8;
+  background:var(--color-bg);
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  color:var(--color-text);
+}
 
 /* Images & SVG */
 img,svg{max-width:100%;height:auto;}
 
 /* Layout container */
-.container-fluid{padding:40px 15px;margin:auto;max-width:1200px;}
+.container-fluid{padding:40px 15px;margin:auto;max-width:1200px;position:relative;}
 
-/* Constrain main markdown content */
-.markdown-body{max-width:760px;margin:auto;padding:40px 15px 40px 15px;position:relative;letter-spacing: .025em}
-.
-
-/* Markdown body basics */
-.markdown-body table{width:100%;border-collapse:collapse;margin:1em 0;}
-.markdown-body th,.markdown-body td{border:1px solid var(--color-table-border);padding:.6em .8em;}
-.markdown-body table tr:nth-child(2n){background:var(--color-table-row-even);}
-.markdown-body blockquote{margin:0 0 1em;padding:0 1em;border-left:4px solid var(--color-divider);color:var(--color-text);opacity:.8;}
-.markdown-body code{background:var(--color-code-bg);color:var(--color-code-text);padding:.2em .4em;border-radius:4px;}
-.markdown-body pre{background:var(--color-code-bg);color:var(--color-code-text);padding:.8em;overflow:auto;border-radius:4px;}
-
-/* Headline underline (simple border) */
-.markdown-body h1{font-weight:600;margin-top:0;padding-bottom:.3em;margin-top:42px;margin-bottom:.5rem;border-bottom:1px solid rgb(205 205 205);} /* border-bottom-color set to 205 205 205 */
-
-.markdown-body hr {
-    height: .25em;
-    padding: 0;
-    margin: 24px 0;
-    background-color: #cdcdcd;
-    border: 0;
+/* ASCII Stars Background */
+.container-fluid::before,
+.container-fluid::after {
+  content: "★ ☆ ✦ ✧";
+  position: fixed;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  color: var(--color-anchor);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+  line-height: 1.2;
+  letter-spacing: 0.5em;
 }
 
-/* Date & meta info */
-.markdown-body small{font-size:.85rem;color:var(--color-text);display:block;}
+.container-fluid::before {
+  top: 2rem;
+  left: 2rem;
+  transform: rotate(-15deg);
+}
 
-/* Utility – visually hidden */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.container-fluid::after {
+  bottom: 2rem;
+  right: 2rem;
+  transform: rotate(15deg);
+}
 
-/* Size utilities used by inline SVG icons (Tailwind‑style) */
-.h-6{height:1.5rem;}
-.w-6{width:1.5rem;}
+/* Mobile adjustments for stars */
+@media only screen and (orientation: portrait) {
+  .container-fluid::before,
+  .container-fluid::after {
+    font-size: 1rem;
+    opacity: 0.12;
+  }
+  
+  .container-fluid::before {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .container-fluid::after {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
 
 /* Color‑mode switch layout */
 #color-mode-switch{display:flex;align-items:center;}
 #color-mode-switch label{cursor:pointer;font-size:.875rem;user-select:none;}
-
-/* Responsive typography */
-@media only screen and (orientation: portrait) {
-  .markdown-body{max-width:1000px; padding: 40px;}
-  h1{font-size:4rem;}
-  h2{font-size:3.5rem;}
-  h3{font-size:3rem;}
-  .markdown-body p,li,div,span,code,table {font-size: 1.8rem;}
-  .markdown-body small {font-size: 1.4rem;}
-}
-
-/* Simple clearfix for floats */
-.clearfix::after,
-.container-fluid::after{content:"";display:block;clear:both;}
 
 /*
   Color Scheme Toggle Switch
@@ -187,6 +187,112 @@ img,svg{max-width:100%;height:auto;}
   width: 30px;
 }
 
+/* Constrain main markdown content */
+.markdown-body{max-width:760px;margin:auto;padding:40px 15px 40px 15px;position:relative;letter-spacing: .025em}
+
+/* Markdown body basics */
+.markdown-body table{width:100%;border-collapse:collapse;margin:1em 0;}
+.markdown-body th,.markdown-body td{border:1px solid var(--color-table-border);padding:.6em .8em;}
+.markdown-body table tr:nth-child(2n){background:var(--color-table-row-even);}
+.markdown-body blockquote{margin:0 0 1em;padding:0 1em;border-left:4px solid var(--color-divider);color:var(--color-text);opacity:.8;}
+.markdown-body code{background:var(--color-code-bg);color:var(--color-code-text);padding:.2em .4em;border-radius:4px;}
+.markdown-body pre{background:var(--color-code-bg);color:var(--color-code-text);padding:.8em;overflow:auto;border-radius:4px;}
+
+/* Headline underline (simple border) */
+.markdown-body h1{font-weight:600;margin-top:0;padding-bottom:.3em;margin-top:42px;margin-bottom:.5rem;border-bottom:1px solid rgb(205 205 205);} /* border-bottom-color set to 205 205 205 */
+
+/* Encrypted Title - Neon Genesis Rainbow */
+.markdown-body h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin: 4rem auto 3rem;
+  letter-spacing: 0.15em;
+  position: relative;
+  background: linear-gradient(120deg, #ff1493, #ff6b35, #ffd700, #32cd32, #00bfff, #9370db, #ff1493);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+  text-shadow: 
+    0 0 2px #00ffff,
+    0 0 4px #00ffff,
+    0 0 6px #ff69b4,
+    0 0 8px #ff69b4;
+  animation: neonGenesis 2.5s ease-in-out infinite alternate, rainbowShift 8s ease-in-out infinite;
+}
+
+@keyframes neonGenesis {
+  from {
+    text-shadow: 
+      0 0 2px #00ffff,
+      0 0 4px #00ffff,
+      0 0 6px #ff69b4,
+      0 0 8px #ff69b4;
+  }
+  to {
+    text-shadow: 
+      0 0 1px #00ffff,
+      0 0 2px #00ffff,
+      0 0 3px #ff69b4,
+      0 0 4px #ff69b4;
+  }
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Horizontal Rules - Keeping the thin divider */
+.markdown-body hr {
+  height: 2px;
+  padding: 0;
+  margin: 2rem 0;
+  background: linear-gradient(90deg, transparent, var(--color-anchor), transparent);
+  border: 0;
+  border-radius: 1px;
+}
+
+/* Date & meta info */
+.markdown-body small{font-size:.85rem;color:var(--color-text);display:block;opacity:0.9;font-weight:500;}
+
+/* Utility – visually hidden */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+
+/* Size utilities used by inline SVG icons (Tailwind‑style) */
+.h-6{height:1.5rem;}
+.w-6{width:1.5rem;}
+
+/* Links */
+a{color:var(--color-anchor);text-decoration:none;}
+a:hover,a:focus{text-decoration:underline;}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6{color:var(--color-heading);line-height:1.25;margin-top:1.2em;margin-bottom:.6em;}
+h1{font-size:2.6rem;}
+h2{font-size:2.2rem;}
+h3{font-size:1.8rem;}
+
+/* Responsive typography */
+@media only screen and (orientation: portrait) {
+  .markdown-body{max-width:1000px; padding: 40px;}
+  h1{font-size:4rem;}
+  h2{font-size:3.5rem;}
+  h3{font-size:3rem;}
+  .markdown-body p,li,div,span,code,table {font-size: 1.8rem;}
+  .markdown-body small {font-size: 1.4rem;}
+}
+
+/* Simple clearfix for floats */
+.clearfix::after,
+.container-fluid::after{content:"";display:block;clear:both;}
+
 .post-list {
   margin-left: 0;
   padding-left: 0;
@@ -202,7 +308,8 @@ img,svg{max-width:100%;height:auto;}
 
     .post-meta {
       font-size: 14px;
-      color: #515151; }
+      color: var(--color-text);
+      opacity: 0.9; }
 
     .toc-category {
       display: inline-block;
@@ -218,7 +325,8 @@ img,svg{max-width:100%;height:auto;}
       display: block; }
     .post-meta {
       font-size: 24px;
-      color: #515151; }
+      color: var(--color-text);
+      opacity: 0.9; }
     .post-list > li {
       margin-bottom: 60px;
      }
