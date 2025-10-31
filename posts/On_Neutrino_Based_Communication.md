@@ -2,7 +2,7 @@
 [date]: <> (2025/10/26)
 [title]: <> (On Neutrino Based Communication)
 
-In *Understanding Media The Extensions of Man*, the Canadian philosopher Marshal Mcluhan eqlouently stated, “During the mechanical ages we had extended our bodies in space. Today, after more than a century of electric technology, we have extended our central nervous system itself in a global embrace, abolishing both space and time as far as our planet is concerned.” I often think about this statement and wonder: what technology changes the last bit, from "our planet" to "our galaxy"? Towards this end, I explore an futuristic communication medium, neutrinos.
+In *Understanding Media The Extensions of Man*, the Canadian philosopher Marshal Mcluhan eloquently stated, “During the mechanical ages we had extended our bodies in space. Today, after more than a century of electric technology, we have extended our central nervous system itself in a global embrace, abolishing both space and time as far as our planet is concerned.” I often think about this statement and wonder: what technology changes the last bit, from "our planet" to "our galaxy"? Towards this end, I explore an futuristic communication medium, neutrinos.
 
 
 ## TL;DR
