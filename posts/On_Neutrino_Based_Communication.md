@@ -4,6 +4,7 @@
 
 In *Understanding Media The Extensions of Man*, the Canadian philosopher Marshal Mcluhan eqlouently stated, “During the mechanical ages we had extended our bodies in space. Today, after more than a century of electric technology, we have extended our central nervous system itself in a global embrace, abolishing both space and time as far as our planet is concerned.” I often think about this statement and wonder: what technology changes the last bit, from "our planet" to "our galaxy"? Towards this end, I explore an futuristic communication medium, neutrinos.
 
+
 ## TL;DR
 - Neutrinos are near massless particles that interact extremely weakly with matter, trillions pass through your hand every second.
 - Neutrinos are interesting for long range communication due to their ability to travel at near the speed of light, in a straight line, and encounter very little obstacles.
@@ -12,6 +13,7 @@ In *Understanding Media The Extensions of Man*, the Canadian philosopher Marshal
 - Researchers in 2024 were able to transmit the word "neutrino" over 1km at 0.1 bits/s with an error rate of 1%.
 - Sending an unrealistic 1-bit Buy "B" or Sell "S" signal over a neutrino from New York to Tokyo would take over 1s, meaning we need 100x improvement in neutrino detection capabilities to be interesting.
 
+---
 
 ## Neutrinos
 
@@ -21,7 +23,7 @@ In *Understanding Media The Extensions of Man*, the Canadian philosopher Marshal
 
 Additionally they travel at near the speed of light, a property that SETI magainze Cosmic Search Vol. 1 says, ["the possibilities of using neutrinos as the vehicle for interstellar communication should be carefully explored... since most other communicating civilizations would be far more advanced than our own, it is an interesting exercise to examine alternative means by which interstellar communication may have evolved."](http://www.bigear.org/vol1no3/neutrino.htm)
 
-![image](https://hackmd.io/_uploads/BJadF-R6xe.png)
+![Table of Elementary Particles](https://hackmd.io/_uploads/BJadF-R6xe.png)
 
 
 ### How Do We Detect Neutrinos?
